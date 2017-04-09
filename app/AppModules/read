@@ -1,0 +1,136 @@
+**Our first angular app**
+
+Module
+
+  a module is the core property of angular. Using this module we define our app.
+
+  syntax:
+        angular.module(<name of our app in string>,<array of dependencies>);
+  examle:
+        angular.module('myApp',[]);
+2.dependency injuction
+  this is a unique feature introduced in angular where we can access a function or
+  an object from one js file to another js
+  _____________________________________________________________________________
+  MVC approach of angular app
+
+  1. Data binding:
+
+    there are lets say some input fields inside our html. then our controller in
+    angular should look upon them and record the values what user types.
+
+
+  M --> Model inside our html
+
+
+  V --> view as our html itself
+
+
+  C --> controller this looks for every change in our view
+
+  <!-------------------------------------------------->
+
+_____________________________________________________________________
+
+M  --> model
+
+v --> view
+
+vm --> view model
+________________________________________________________________________
+
+To define a module we write like this:
+
+    angular.module('myApp',[]);
+
+ to call a module, we write like this:
+
+     angular.module('myApp');
+
+______________________________________________________________________
+creating controllers:
+
+(function(angular){
+
+  function ProjectController ('$scope'){
+    console.log('$scope')
+  }
+
+//injecting contoller
+ProjectController.$inject = ['$scope'];
+
+//calling module
+angular.module('ProjectApp').controller('projectController',ProjectController);
+})(window.angular || (window.angular = {}));
+____________________________________________________________________________
+
+
+we can create any number of modules but we have to injuct in app.js
+
+**we can nest controllers but we should not nest ng app
+
+**for one way data binding we use ng-bind
+
+**for two way data binding we use ng-model
+______________________________________________
+
+one way data binding:
+
+    Getting the data from the controller and putting the same onto the html is what we call one way
+    data binding
+      there are two ways of performing one way data binding:
+        1.ng-bind
+          sytax:
+            <span ng-bind="<pass the property of vm>"</span>
+
+            example:
+              <span ng-bind="user.firstName"></span>
+
+          2.Angular exressions.
+            we can alternativerly use angular expressions these are basically double curly
+            braces to bind the data
+
+            syntax:
+              <span>{{<pass the property of vm>}}</span>
+
+            example:
+              <span>{{user.firstName}}</span>
+
+             **the issue with the angular exressions is that unitll the data is loaded in the controller the html shows
+             empty curly braces
+             this is a bad user experience.
+
+             **prefereed way of performing one way data binding using ng-bind attribute
+
+             ___________________________________________________________________________________
+             **two way data binding:
+
+             the concept of sending the data form the hmtl to controller and back from the html is what we call
+             as two way data binding since there is only the form fields that we use for user to input some data we
+             can make use on angular ng-model to perform two way data binding.
+
+             syntax:
+                  <input type="text" ng-model="<pass the property of vm>"/>
+
+                  exmple:
+                  <input type="text" ng-model="user.firstName"/>
+
+                  **only ng-model attribute is used ot perform two way data binding.
+         ___________________________________________________________________________________
+
+**Routing in Angularjs**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
