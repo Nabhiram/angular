@@ -1,39 +1,29 @@
-//route provider in app.js
 
-function AppConfig ($routeProvider){
-  $routeProvider
+function AppConfig($routeProider) {
+  $routeProider
     .when('/home',{
-      templateUrl:'../template/home.temp.html',
-      controller: 'HomeControler'
+      templateUrl:'',
+      controller: ''
     })
     .otherwise('/home');
-
-}
-
-AppConfig.$inject = ['$routeProvider'];
-
-
-.config(AppConfig);
-
-//route provider
-
-function AppConfig($routeProvider) {
-  $routeProvider
-    .when('/home',{
-      templateUrl: '..',
-      controller:''
-    })
-    .when('',{
-      templateUrl:'../',
-      controller:' '
-
-    })
-    .otherwise('/');
-
 }
 AppConfig.$inject = ['$routeProvider'];
 
 .config(AppConfig);
-//creating controller
 
+//controller
+function HomeController($scope,$location) {
+  $scope.user = {
+    'userName':'',
+    'password':''
 
+  };
+  $scope.loginUser = function () {
+    if($scope.user.userName === 'krishna' && $scope.user.password === 'krishna') {
+      console.log('login succesfull');
+      $location.path('/about');
+    }
+  };
+}
+
+HomeController.$inject = ['$scope','$locaiton'];

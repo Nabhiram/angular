@@ -3,7 +3,8 @@
 
   //call back function
    function KrishnaControll ($scope) {
-     $scope.user = {
+     console.log($scope);
+     /*$scope.user = {
        phoneNumber: '',
        fuck:'',
        suck: '',
@@ -19,7 +20,7 @@
         else{
          $scope.user.fuck='';
        }
-     };
+     };*/
 
    }
    KrishnaControll.$inject = ['$scope'];

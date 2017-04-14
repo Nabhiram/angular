@@ -1,25 +1,24 @@
 //iife construct
-
 (function (angular) {
   'use strict';
-  //call back functin
-  function HomeController ($scope,$location) {
-    $scope.user = {
-      'username': '',
-      'password': ''
-    };
+  //call back function
+  function HomeController ($scope,UserFactory,LoginService) {
+   /*$scope.user = UserFactory.user;
 
-    $scope.loginUser = function () {
-      if($scope.user.username === 'krishna' &&  $scope.user.password === 'krishna'){
-        console.log('Login was successful');
-        $location.path('/about');
-      }
+   $scope.loginUser = function () {
+     LoginService.performLogin();
+   };*/
+   //vm = viewmodel
+    var vm =  this;
+    vm.user = UserFactory.user;
+    vm.loginUser = function(){
+      LoginService.performLogin();
     };
   }
   //inject the dependencies
-  HomeController.$inject = ['$scope','$location'];
+  HomeController.$inject = ['$scope','UserFactory','LoginService'];
 
-//creating module and define controller
+  //creating module and define controller
 
   angular.module('coustemApp',[]).controller('HomeControler',HomeController);
 
